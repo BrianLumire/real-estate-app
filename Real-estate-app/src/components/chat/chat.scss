@@ -1,0 +1,164 @@
+.chat {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .messages {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        overflow-y: auto; 
+
+       
+        &::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; 
+        }
+        
+        scrollbar-width: none;
+
+        h1 {
+            font-weight: 300;
+        }
+
+        .message {
+            display: flex;
+            background-color: white;
+            padding: 20px;
+            align-items: center;
+            gap: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            span {
+                font-weight: bold;
+                color: rgba(81, 81, 81, 0.988);
+            }
+            p {
+                color: rgba(67, 67, 67, 0.988);
+            }
+        }
+    }
+
+    .chatbox {
+        flex: 1;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .top {
+            background-color: rgb(238, 203, 74);
+            padding: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .user {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
+            .close {
+                cursor: pointer;
+            }
+        }
+
+        .centre {
+            height: 350px;
+            overflow: auto; // Change to auto for better control
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            /* Hide scrollbar by default */
+            &::-webkit-scrollbar {
+                width: 0px; /* Remove scrollbar space */
+                background: transparent; /* Optional: just make scrollbar invisible */
+            }
+            /* Firefox */
+            scrollbar-width: none; /* Hide scrollbar */
+
+            .chatmessage {
+                width: 50%;
+
+                &.own {
+                    align-self: flex-end;
+                    text-align: right;
+                }
+
+                span {
+                    font-size: 12px;
+                    background-color: rgb(243, 226, 165);
+                    padding: 2px;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .bottom {
+            border-top: 2px solid rgb(243, 226, 165);
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            textarea {
+                flex: 3;
+                height: 100%;
+                border: none;
+                padding: 20px;
+            }
+
+            button {
+                flex: 1;
+                background-color: rgb(238, 203, 74);
+                height: 100%;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+/* Make scrollbar visible on hover or active state */
+.chat .messages:hover,
+.chat .messages:active,
+.chat .chatbox .centre:hover,
+.chat .chatbox .centre:active {
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}

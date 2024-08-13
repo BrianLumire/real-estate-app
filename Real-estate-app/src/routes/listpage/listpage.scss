@@ -1,0 +1,52 @@
+.listpage {
+    display: flex;
+    height: 100%;
+
+    .listcontainer {
+        flex: 3;
+        height: 100%;
+        
+        .wrapper {
+            height: 100%;
+            padding-right: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            overflow-y: scroll;
+            padding-bottom: 50px;
+            
+           
+            &::-webkit-scrollbar {
+                width: 0px;  
+                background: transparent;  
+            }
+
+            &:hover::-webkit-scrollbar {
+                width: 8px;  
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: darkgrey;
+                border-radius: 10px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+           
+            scrollbar-width: none;  
+            
+            &:hover {
+                scrollbar-width: thin;  
+                scrollbar-color: darkgrey #f1f1f1;  
+            }
+        }
+    }
+
+    .mapcontainer {
+        flex: 2;
+        height: 100%;
+        background-color: rgb(243, 226, 165);
+    }
+}
